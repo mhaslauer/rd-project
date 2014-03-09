@@ -1,0 +1,332 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY zombiesim "http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#"
+     xml:base="http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim"
+     xmlns:zombiesim="http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim">
+        <rdfs:comment>The ontology for the zombie simulation</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#HumanCount -->
+
+    <owl:DatatypeProperty rdf:about="&zombiesim;HumanCount">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#SimulationTime -->
+
+    <owl:DatatypeProperty rdf:about="&zombiesim;SimulationTime">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#Size -->
+
+    <owl:DatatypeProperty rdf:about="&zombiesim;Size">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#ZombieCount -->
+
+    <owl:DatatypeProperty rdf:about="&zombiesim;ZombieCount">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#Human -->
+
+    <owl:Class rdf:about="&zombiesim;Human">
+        <rdfs:subClassOf rdf:resource="&zombiesim;SimulationParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#LongSimulation -->
+
+    <owl:Class rdf:about="&zombiesim;LongSimulation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&zombiesim;SimulationResult"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&zombiesim;SimulationTime"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;integer">200</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#MiddleSimulation -->
+
+    <owl:Class rdf:about="&zombiesim;MiddleSimulation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&zombiesim;SimulationResult"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&zombiesim;SimulationTime"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;integer">50</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&zombiesim;SimulationTime"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="&xsd;integer">200</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#ShortSimulation -->
+
+    <owl:Class rdf:about="&zombiesim;ShortSimulation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&zombiesim;SimulationResult"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&zombiesim;SimulationTime"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="&xsd;integer">50</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#SimulationParameter -->
+
+    <owl:Class rdf:about="&zombiesim;SimulationParameter"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#SimulationResult -->
+
+    <owl:Class rdf:about="&zombiesim;SimulationResult"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#WorldSize -->
+
+    <owl:Class rdf:about="&zombiesim;WorldSize">
+        <rdfs:subClassOf rdf:resource="&zombiesim;SimulationParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#Zombie -->
+
+    <owl:Class rdf:about="&zombiesim;Zombie">
+        <rdfs:subClassOf rdf:resource="&zombiesim;SimulationParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#BigWorld -->
+
+    <owl:NamedIndividual rdf:about="&zombiesim;BigWorld">
+        <rdf:type rdf:resource="&zombiesim;WorldSize"/>
+        <Size rdf:datatype="&xsd;integer">20</Size>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#ExampleResult -->
+
+    <owl:NamedIndividual rdf:about="&zombiesim;ExampleResult">
+        <rdf:type rdf:resource="&zombiesim;SimulationResult"/>
+        <SimulationTime rdf:datatype="&xsd;integer">12</SimulationTime>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#HighHumanCount -->
+
+    <owl:NamedIndividual rdf:about="&zombiesim;HighHumanCount">
+        <rdf:type rdf:resource="&zombiesim;Human"/>
+        <HumanCount rdf:datatype="&xsd;integer">30</HumanCount>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#HighZombieCount -->
+
+    <owl:NamedIndividual rdf:about="&zombiesim;HighZombieCount">
+        <rdf:type rdf:resource="&zombiesim;Zombie"/>
+        <ZombieCount rdf:datatype="&xsd;integer">30</ZombieCount>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#LowHumanCount -->
+
+    <owl:NamedIndividual rdf:about="&zombiesim;LowHumanCount">
+        <rdf:type rdf:resource="&zombiesim;Human"/>
+        <HumanCount rdf:datatype="&xsd;integer">10</HumanCount>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#LowZombieCount -->
+
+    <owl:NamedIndividual rdf:about="&zombiesim;LowZombieCount">
+        <rdf:type rdf:resource="&zombiesim;Zombie"/>
+        <ZombieCount rdf:datatype="&xsd;integer">10</ZombieCount>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#MiddleHumanCount -->
+
+    <owl:NamedIndividual rdf:about="&zombiesim;MiddleHumanCount">
+        <rdf:type rdf:resource="&zombiesim;Human"/>
+        <HumanCount rdf:datatype="&xsd;integer">20</HumanCount>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#MiddleWorld -->
+
+    <owl:NamedIndividual rdf:about="&zombiesim;MiddleWorld">
+        <rdf:type rdf:resource="&zombiesim;WorldSize"/>
+        <Size rdf:datatype="&xsd;integer">15</Size>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#MiddleZombieCount -->
+
+    <owl:NamedIndividual rdf:about="&zombiesim;MiddleZombieCount">
+        <rdf:type rdf:resource="&zombiesim;Zombie"/>
+        <ZombieCount rdf:datatype="&xsd;integer">20</ZombieCount>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#SmallWorld -->
+
+    <owl:NamedIndividual rdf:about="&zombiesim;SmallWorld">
+        <rdf:type rdf:resource="&zombiesim;WorldSize"/>
+        <Size rdf:datatype="&xsd;integer">10</Size>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&zombiesim;LongSimulation"/>
+            <rdf:Description rdf:about="&zombiesim;MiddleSimulation"/>
+            <rdf:Description rdf:about="&zombiesim;ShortSimulation"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
