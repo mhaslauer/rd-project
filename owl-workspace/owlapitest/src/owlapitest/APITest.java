@@ -237,6 +237,7 @@ public class APITest {
     	OWLClassExpression add3 = fac.getOWLObjectSomeValuesFrom(prop, expr3);
     	
     	OWLClassExpression add4 = fac.getOWLObjectIntersectionOf(add1, add2, add3);
+    	
     
     
     	

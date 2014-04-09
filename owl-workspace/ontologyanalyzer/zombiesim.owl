@@ -1,0 +1,515 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY zombiesim "http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#"
+     xml:base="http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim"
+     xmlns:zombiesim="http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim">
+        <rdfs:comment>The ontology for the zombie simulation</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#hasParameter -->
+
+    <owl:ObjectProperty rdf:about="&zombiesim;hasParameter">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&zombiesim;SimulationParameter"/>
+        <rdfs:domain rdf:resource="&zombiesim;SimulationScenario"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#SimulationTime -->
+
+    <owl:DatatypeProperty rdf:about="&zombiesim;SimulationTime">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#value -->
+
+    <owl:DatatypeProperty rdf:about="&zombiesim;value">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#BestCase -->
+
+    <owl:Class rdf:about="&zombiesim;BestCase">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;BigWorld"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;LessZombies"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;ManyHumans"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;LessZombies"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;ManyHumans"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;NormalWorld"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&zombiesim;SimulationScenario"/>
+        <owl:disjointWith rdf:resource="&zombiesim;HugeFight"/>
+        <owl:disjointWith rdf:resource="&zombiesim;WorstCase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#BigWorld -->
+
+    <owl:Class rdf:about="&zombiesim;BigWorld">
+        <rdfs:subClassOf rdf:resource="&zombiesim;WorldSize"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#Choice -->
+
+    <owl:Class rdf:about="&zombiesim;Choice">
+        <rdfs:subClassOf rdf:resource="&zombiesim;SimulationScenario"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                        <owl:someValuesFrom rdf:resource="&zombiesim;LessZombies"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                        <owl:someValuesFrom rdf:resource="&zombiesim;ManyHumans"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                        <owl:someValuesFrom rdf:resource="&zombiesim;NormalWorld"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment>Bla test</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#HugeFight -->
+
+    <owl:Class rdf:about="&zombiesim;HugeFight">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;BigWorld"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;NormalHumans"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;NormalZombies"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;NormalHumans"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;NormalWorld"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;NormalZombies"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;NormalHumans"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;NormalZombies"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;SmallWorld"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&zombiesim;SimulationScenario"/>
+        <owl:disjointWith rdf:resource="&zombiesim;WorstCase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#Human -->
+
+    <owl:Class rdf:about="&zombiesim;Human">
+        <rdfs:subClassOf rdf:resource="&zombiesim;SimulationParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#LessHumans -->
+
+    <owl:Class rdf:about="&zombiesim;LessHumans">
+        <rdfs:subClassOf rdf:resource="&zombiesim;Human"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#LessZombies -->
+
+    <owl:Class rdf:about="&zombiesim;LessZombies">
+        <rdfs:subClassOf rdf:resource="&zombiesim;Zombie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#LongSimulation -->
+
+    <owl:Class rdf:about="&zombiesim;LongSimulation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&zombiesim;SimulationResult"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&zombiesim;SimulationTime"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;integer">200</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&zombiesim;SimulationResult"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#ManyHumans -->
+
+    <owl:Class rdf:about="&zombiesim;ManyHumans">
+        <rdfs:subClassOf rdf:resource="&zombiesim;Human"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#ManyZombies -->
+
+    <owl:Class rdf:about="&zombiesim;ManyZombies">
+        <rdfs:subClassOf rdf:resource="&zombiesim;Zombie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#MiddleSimulation -->
+
+    <owl:Class rdf:about="&zombiesim;MiddleSimulation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&zombiesim;SimulationResult"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&zombiesim;SimulationTime"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;integer">50</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&zombiesim;SimulationTime"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="&xsd;integer">200</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&zombiesim;SimulationResult"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#NormalHumans -->
+
+    <owl:Class rdf:about="&zombiesim;NormalHumans">
+        <rdfs:subClassOf rdf:resource="&zombiesim;Human"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#NormalWorld -->
+
+    <owl:Class rdf:about="&zombiesim;NormalWorld">
+        <rdfs:subClassOf rdf:resource="&zombiesim;WorldSize"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#NormalZombies -->
+
+    <owl:Class rdf:about="&zombiesim;NormalZombies">
+        <rdfs:subClassOf rdf:resource="&zombiesim;Zombie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#ShortSimulation -->
+
+    <owl:Class rdf:about="&zombiesim;ShortSimulation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&zombiesim;SimulationResult"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&zombiesim;SimulationTime"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="&xsd;integer">50</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&zombiesim;SimulationResult"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#SimulationParameter -->
+
+    <owl:Class rdf:about="&zombiesim;SimulationParameter">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#SimulationResult -->
+
+    <owl:Class rdf:about="&zombiesim;SimulationResult">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#SimulationScenario -->
+
+    <owl:Class rdf:about="&zombiesim;SimulationScenario">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#SmallWorld -->
+
+    <owl:Class rdf:about="&zombiesim;SmallWorld">
+        <rdfs:subClassOf rdf:resource="&zombiesim;WorldSize"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#WorldSize -->
+
+    <owl:Class rdf:about="&zombiesim;WorldSize">
+        <rdfs:subClassOf rdf:resource="&zombiesim;SimulationParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#WorstCase -->
+
+    <owl:Class rdf:about="&zombiesim;WorstCase">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;LessHumans"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;ManyZombies"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;NormalWorld"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;LessHumans"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;ManyZombies"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&zombiesim;hasParameter"/>
+                                <owl:someValuesFrom rdf:resource="&zombiesim;SmallWorld"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&zombiesim;SimulationScenario"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#Zombie -->
+
+    <owl:Class rdf:about="&zombiesim;Zombie">
+        <rdfs:subClassOf rdf:resource="&zombiesim;SimulationParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <rdf:Description rdf:about="&owl;Thing">
+        <rdfs:comment>Test</rdfs:comment>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&zombiesim;LongSimulation"/>
+            <rdf:Description rdf:about="&zombiesim;MiddleSimulation"/>
+            <rdf:Description rdf:about="&zombiesim;ShortSimulation"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
