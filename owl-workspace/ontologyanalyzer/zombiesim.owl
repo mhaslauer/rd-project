@@ -26,6 +26,23 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#parameter -->
+
+    <owl:AnnotationProperty rdf:about="&zombiesim;parameter"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Object Properties
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -58,14 +75,6 @@
     <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#SimulationTime -->
 
     <owl:DatatypeProperty rdf:about="&zombiesim;SimulationTime">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#value -->
-
-    <owl:DatatypeProperty rdf:about="&zombiesim;value">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
     </owl:DatatypeProperty>
     
@@ -126,6 +135,11 @@
         <rdfs:subClassOf rdf:resource="&zombiesim;SimulationScenario"/>
         <owl:disjointWith rdf:resource="&zombiesim;HugeFight"/>
         <owl:disjointWith rdf:resource="&zombiesim;WorstCase"/>
+        <parameter rdf:datatype="&xsd;string">{
+&quot;worldsize&quot;: 10,
+&quot;zombiecount&quot;:1,
+&quot;humancount&quot;: 10
+}</parameter>
     </owl:Class>
     
 
@@ -263,10 +277,10 @@
                         <owl:onProperty rdf:resource="&zombiesim;SimulationTime"/>
                         <owl:someValuesFrom>
                             <rdfs:Datatype>
-                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:onDatatype rdf:resource="&xsd;double"/>
                                 <owl:withRestrictions rdf:parseType="Collection">
                                     <rdf:Description>
-                                        <xsd:minInclusive rdf:datatype="&xsd;integer">200</xsd:minInclusive>
+                                        <xsd:minInclusive rdf:datatype="&xsd;double">200.0</xsd:minInclusive>
                                     </rdf:Description>
                                 </owl:withRestrictions>
                             </rdfs:Datatype>
@@ -307,10 +321,10 @@
                         <owl:onProperty rdf:resource="&zombiesim;SimulationTime"/>
                         <owl:someValuesFrom>
                             <rdfs:Datatype>
-                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:onDatatype rdf:resource="&xsd;double"/>
                                 <owl:withRestrictions rdf:parseType="Collection">
                                     <rdf:Description>
-                                        <xsd:minInclusive rdf:datatype="&xsd;integer">50</xsd:minInclusive>
+                                        <xsd:minInclusive rdf:datatype="&xsd;double">50.0</xsd:minInclusive>
                                     </rdf:Description>
                                 </owl:withRestrictions>
                             </rdfs:Datatype>
@@ -320,10 +334,10 @@
                         <owl:onProperty rdf:resource="&zombiesim;SimulationTime"/>
                         <owl:someValuesFrom>
                             <rdfs:Datatype>
-                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:onDatatype rdf:resource="&xsd;double"/>
                                 <owl:withRestrictions rdf:parseType="Collection">
                                     <rdf:Description>
-                                        <xsd:maxExclusive rdf:datatype="&xsd;integer">200</xsd:maxExclusive>
+                                        <xsd:maxExclusive rdf:datatype="&xsd;double">200.0</xsd:maxExclusive>
                                     </rdf:Description>
                                 </owl:withRestrictions>
                             </rdfs:Datatype>
@@ -372,10 +386,10 @@
                         <owl:onProperty rdf:resource="&zombiesim;SimulationTime"/>
                         <owl:someValuesFrom>
                             <rdfs:Datatype>
-                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:onDatatype rdf:resource="&xsd;double"/>
                                 <owl:withRestrictions rdf:parseType="Collection">
                                     <rdf:Description>
-                                        <xsd:maxExclusive rdf:datatype="&xsd;integer">50</xsd:maxExclusive>
+                                        <xsd:maxExclusive rdf:datatype="&xsd;double">50.0</xsd:maxExclusive>
                                     </rdf:Description>
                                 </owl:withRestrictions>
                             </rdfs:Datatype>
@@ -488,6 +502,26 @@
     <rdf:Description rdf:about="&owl;Thing">
         <rdfs:comment>Test</rdfs:comment>
     </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mhaslauer/ontologies/2013/11/zombiesim#Result1 -->
+
+    <owl:NamedIndividual rdf:about="&zombiesim;Result1">
+        <rdf:type rdf:resource="&zombiesim;SimulationResult"/>
+        <SimulationTime rdf:datatype="&xsd;double">250.0</SimulationTime>
+    </owl:NamedIndividual>
     
 
 

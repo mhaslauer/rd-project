@@ -1,9 +1,8 @@
 package rd1302.tests;
 
-import java.util.HashSet;
-import java.util.Set;
 
 import rd1302.analyzer.OntologyAnalyzer;
+import rd1302.simulationcaller.SimulationCaller;
 
 public class FunctionTester {
 	
@@ -12,16 +11,17 @@ public class FunctionTester {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Set<String> params = new HashSet<String>();
-		
-		params.add("ManyZombies");
-    	params.add("LessHumans");
-    	params.add("SmallWorld");
-		
-		OntologyAnalyzer.init(ontology_file);
+		OntologyAnalyzer.init(null);
+		/*
 		for (String bla : OntologyAnalyzer.evaluateParameter(params)){
 			System.out.println(bla);
 		}
+		System.out.println(OntologyAnalyzer.exportClassHierarchie());
+		*/
+		String temp = OntologyAnalyzer.getScenarioParameterValues("BestCase");
+		System.out.println(SimulationCaller.callSimulation(temp));
+		
+		System.out.println(OntologyAnalyzer.evaluateSimulationResult(Integer.parseInt(SimulationCaller.callSimulation(temp))));
 	}
 
 }
