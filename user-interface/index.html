@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="lib/jquery-2.1.1.min.js"></script>
+    <script src="lib/jquery.mobile-1.4.2.min.js"></script>
+    <script src="lib/cytoscape.min.js"></script>
+    <script src="js/cy.js"></script>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
+    <link rel="stylesheet" href="css/cy.css">
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+    <div data-role="page" id="main">
+        <div data-role="header" data-position="fixed">
+            <h1>Natürlichsprachliche Frontend-Steuerung mittels Ontologien (RD13-02)</h1>
+        </div>
+
+        <div role="main" class="ui-content">
+            <div id="wrapper">
+                <div id="cy" ></div>
+                <div id="menu-wrapper">
+                    <div id="buttons">
+                        <button id="load">1. Ontologie laden</button>
+                        <button id="send" disabled>2. Auswahl überprüfen</button>
+                        <button id="confirm" disabled>3. Simulation starten</button>
+                    </div>
+                    <div id="legend">
+                        <p>
+                            <h2>Legende:</h2>
+                            <div class="circle-red">
+                                <p class="legend-text">
+                                    Parameter
+                                </p>
+                            </div>
+                            <div class="circle-blue">
+                                <p class="legend-text">
+                                    Szenario
+                                </p>
+                            </div>
+                            <div class="circle-green">
+                                <p class="legend-text">
+                                    Ergebnis
+                                </p>
+                            </div>
+                            <div class="circle-black">
+                                <p class="legend-text">
+                                    Ausgewählt
+                                </p>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <h4>Graßl Stefan, Haslauer Michael, Plainer Andrea</h4>
+        </div>
+    </div>
+</body>
+</html>

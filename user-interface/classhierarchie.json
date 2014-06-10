@@ -1,0 +1,138 @@
+{
+  "name": "owl:Thin",
+  "subclasses": [
+    {
+      "name": "SimulationParameter",
+      "subclasses": [
+        {
+          "name": "Human",
+          "subclasses": [
+            {
+              "name": "LessHumans",
+              "subclasses": [
+                
+              ]
+            },
+            {
+              "name": "ManyHumans",
+              "subclasses": [
+                
+              ]
+            },
+            {
+              "name": "NormalHumans",
+              "subclasses": [
+                
+              ]
+            },
+            
+          ]
+        },
+        {
+          "name": "WorldSize",
+          "subclasses": [
+            {
+              "name": "BigWorld",
+              "subclasses": [
+                
+              ]
+            },
+            {
+              "name": "NormalWorld",
+              "subclasses": [
+                
+              ]
+            },
+            {
+              "name": "SmallWorld",
+              "subclasses": [
+                
+              ]
+            },
+            
+          ]
+        },
+        {
+          "name": "Zombie",
+          "subclasses": [
+            {
+              "name": "LessZombies",
+              "subclasses": [
+                
+              ]
+            },
+            {
+              "name": "ManyZombies",
+              "subclasses": [
+                
+              ]
+            },
+            {
+              "name": "NormalZombies",
+              "subclasses": [
+                
+              ]
+            },
+            
+          ]
+        },
+        
+      ]
+    },
+    {
+      "name": "SimulationResult",
+      "subclasses": [
+        {
+          "name": "LongSimulation",
+          "subclasses": [
+            
+          ]
+        },
+        {
+          "name": "MiddleSimulation",
+          "subclasses": [
+            
+          ]
+        },
+        {
+          "name": "ShortSimulation",
+          "subclasses": [
+            
+          ]
+        },
+        
+      ]
+    },
+    {
+      "name": "SimulationScenario",
+      "subclasses": [
+        {
+          "name": "BestCase",
+          "subclasses": [
+            
+          ]
+        },
+        {
+          "name": "Choice",
+          "subclasses": [
+            
+          ]
+        },
+        {
+          "name": "HugeFight",
+          "subclasses": [
+            
+          ]
+        },
+        {
+          "name": "WorstCase",
+          "subclasses": [
+            
+          ]
+        },
+        
+      ]
+    },
+    
+  ]
+}
