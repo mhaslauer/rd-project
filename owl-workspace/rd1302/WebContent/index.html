@@ -24,31 +24,75 @@
                         <button id="load">1. Ontologie laden</button>
                         <button id="send" disabled>2. Auswahl überprüfen</button>
                         <button id="confirm" disabled>3. Simulation starten</button>
-                    </div>
+                    </div>                    
+                    <div id="help">
+                    	<div id="step1" class="help-active">
+                    		<h4>Schritt 1:</h4>
+                    		<div class="help-text">
+                    			Klicken Sie "1. Ontologie laden", um zu starten.
+                    		</div>
+                    	</div>
+                    	<div id="step2" class="help-inactive">
+                    		<h4>Schritt 2:</h4>
+                    		<div class="help-text">
+                    			Wählen Sie aus jeder (roten) Gruppe einen Simulations - Parameter aus.
+                    		</div>
+                    	</div>
+                    	<div id="step3" class="help-inactive">
+                    		<h4>Schritt 3:</h4>
+                    		<div class="help-text">
+                    			Klicken Sie "2. Auswahl überprüfen", damit die Parameter überprüft und ein Szenario bestimmt werden können.
+                    		</div>
+                    	</div> 
+                    	<div id="step4" class="help-inactive">
+                    		<h4>Schritt 4:</h4>
+                    		<div class="help-text">
+                    			Klicken Sie "3. Simulation starten", um die Simulation mit den ausgewählten Parametern zu starten.
+                    		</div>
+                    	</div>
+                    	<div id="step5" class="help-inactive">
+                    		<h4>Schritt 5:</h4>
+                    		<div class="help-text">
+                    			Simulation abgeschlossen!
+                    		</div>
+                    	</div>            
+                    </div>                    
                     <div id="legend">
-                        <p>
-                            <h2>Legende:</h2>
-                            <div class="circle-red">
-                                <p class="legend-text">
-                                    Parameter
-                                </p>
-                            </div>
-                            <div class="circle-blue">
-                                <p class="legend-text">
-                                    Szenario
-                                </p>
-                            </div>
-                            <div class="circle-green">
-                                <p class="legend-text">
-                                    Ergebnis
-                                </p>
-                            </div>
-                            <div class="circle-black">
-                                <p class="legend-text">
-                                    Ausgewählt
-                                </p>
-                            </div>
-                        </p>
+	                    <h5>Legende:</h5>
+	                    <div id="legend-content">	                    	
+	                    	<div style="float: left;">
+		                    	<div class="legend-line">
+		                    		<div class="circle-red">
+		                         		<p class="legend-text">
+		                             		Parameter
+			                    		</p>
+			                    	</div>
+		                    	</div>
+			                    <div class="legend-line">
+			                    	<div class="circle-blue">
+			                        	<p class="legend-text">
+			                            	Szenario
+			                        	</p>
+			                    	</div>
+		                    	</div>
+	                    	</div>
+	                    	<div style="float: right;">	                    	
+		                    	<div class="legend-line">
+		                    		<div class="circle-green">
+		                        		<p class="legend-text">
+		                            		Ergebnis
+		                         		</p>
+		                     		</div>
+		                     	</div>
+		                     	<div class="legend-line">
+		                     		<div class="circle-black">
+		                         		<p class="legend-text">
+		                             		Ausgewählt
+		                         		</p>
+		                     		</div>
+		                    	</div>
+							</div>
+	                    </div> 
                     </div>
                 </div>
             </div>

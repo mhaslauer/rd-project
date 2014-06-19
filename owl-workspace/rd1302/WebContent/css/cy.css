@@ -14,7 +14,7 @@
 }
 
 #menu-wrapper {
-    margin-top: 50px;
+    margin-top: 15px;
     float: right;
     width: 200px;
 }
@@ -30,7 +30,8 @@
 }
 
 #legend {
-    margin-top: 250px;
+    margin-top: 35px;
+    margin-left: -25px;
 }
 
 
@@ -68,5 +69,31 @@ div.circle-black {
 
 .legend-text {
     margin-left: 25px;
-    font-size: large;
+    font-size: smaller;
+}
+
+#legend-content {
+	margin-top: -25px;
+}
+
+.legend-line {
+	width: 112px;
+}
+
+#help {
+	margin-top: 200px;
+	margin-left: -25px;
+}
+
+.help-active {
+	color: black;
+}
+
+.help-inactive {
+	color: grey;
+}
+
+.help-text {
+	margin-top: -15px;
+	margin-bottom: 10px;
 }

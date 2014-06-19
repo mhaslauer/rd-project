@@ -152,7 +152,18 @@ function parseOntology(rawOntology){
         }
     }
 
+    
+    // reset all buttons
+    $('#send').attr("disabled", true);
+    $('#confirm').attr("disabled", true);
 
+    // set active help to step 2
+    $('#step1').removeClass('help-inactive help-active').addClass('help-inactive');
+    $('#step2').removeClass('help-inactive help-active').addClass('help-active');
+    $('#step3').removeClass('help-inactive help-active').addClass('help-inactive');
+    $('#step4').removeClass('help-inactive help-active').addClass('help-inactive');
+    $('#step5').removeClass('help-inactive help-active').addClass('help-inactive');
+    
 
     $('#cy').cytoscape({
         style: cytoscape.stylesheet()
@@ -249,10 +260,24 @@ function parseOntology(rawOntology){
                     // after onClick on any child node check if there are all parameters selected to enable send choice
                     if (countSimParam === cy.elements('.selected-sp').length) {
                         $('#send').removeAttr('disabled');
+                        
+                        // set active help to step 3
+                        $('#step1').removeClass('help-inactive help-active').addClass('help-inactive');
+                        $('#step2').removeClass('help-inactive help-active').addClass('help-inactive');
+                        $('#step3').removeClass('help-inactive help-active').addClass('help-active');
+                        $('#step4').removeClass('help-inactive help-active').addClass('help-inactive');
+                        $('#step5').removeClass('help-inactive help-active').addClass('help-inactive');
                     }
                     else
                     {
                         $('#send').attr('disabled', 'disabled');
+                        
+                        // set active help to step 2
+                        $('#step1').removeClass('help-inactive help-active').addClass('help-inactive');
+                        $('#step2').removeClass('help-inactive help-active').addClass('help-active');
+                        $('#step3').removeClass('help-inactive help-active').addClass('help-inactive');
+                        $('#step4').removeClass('help-inactive help-active').addClass('help-inactive');
+                        $('#step5').removeClass('help-inactive help-active').addClass('help-inactive');
                     }
                 }
             });
@@ -321,6 +346,13 @@ function processScenarioResponse(scenarioresponse){
 	}
 	
 	$('#confirm').removeAttr('disabled');
+	
+    // set active help to step 4
+    $('#step1').removeClass('help-inactive help-active').addClass('help-inactive');
+    $('#step2').removeClass('help-inactive help-active').addClass('help-inactive');
+    $('#step3').removeClass('help-inactive help-active').addClass('help-inactive');
+    $('#step4').removeClass('help-inactive help-active').addClass('help-active');
+    $('#step5').removeClass('help-inactive help-active').addClass('help-inactive');
 }
 
 
@@ -374,4 +406,11 @@ function processSimulationResponse(simulationresponse){
 			elements[i].addClass('selected-sr');
 		}
 	}
+	
+	// set active help to step 5
+    $('#step1').removeClass('help-inactive help-active').addClass('help-inactive');
+    $('#step2').removeClass('help-inactive help-active').addClass('help-inactive');
+    $('#step3').removeClass('help-inactive help-active').addClass('help-inactive');
+    $('#step4').removeClass('help-inactive help-active').addClass('help-inactive');
+    $('#step5').removeClass('help-inactive help-active').addClass('help-active');
 }
